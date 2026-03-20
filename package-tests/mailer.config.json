@@ -1,0 +1,22 @@
+{
+  "provider": "resend",
+  "apiKey": "re_your_api_key",
+  "from": "My Store <hello@example.com>",
+  "storeUrl": "https://example.com",
+  "defaultLanguage": "en",
+  "theme": {
+    "designType": "playful",
+    "brandName": "My Store",
+    "colors": {
+      "primary": "#000000",
+      "background": "#F9FAFB",
+      "text": "#111827"
+    },
+    "company": {
+      "name": "My Store",
+      "addressLine1": "123 Commerce St",
+      "contactEmail": "support@example.com"
+    },
+    "socials": {}
+  }
+}
