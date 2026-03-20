@@ -1,6 +1,6 @@
 {
   "name": "guralnik-mailer",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Zero-code, premium multi-language email package for Medusa v2 and Node.js",
   "medusa": {
     "isPlugin": true
@@ -23,7 +23,7 @@
     }
   },
   "bin": {
-    "guralnik-mailer": "./dist/cli.js"
+    "guralnik-mailer": "dist/cli.js"
   },
   "scripts": {
     "build": "tsup src/index.tsx src/medusa.ts src/medusa/subscribers/order-handler.ts src/cli.ts --format cjs,esm --dts",
