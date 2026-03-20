@@ -5,3 +5,6 @@ dist/
 *.log
 package-tests/_output/
 *.tgz
+test-entwickler.tsx
+test-medusa.ts
+mailer.config.json
