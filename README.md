@@ -202,7 +202,7 @@ await mailer.send("OrderConfirmation", "customer@example.com", {
 
 The Guralnik Mailer was built by me—**Elias Guralnik**.
 
-I'm a 19-year-old full-stack web developer based in Israel, specializing in building modern applications and custom e-commerce architectures. My focus goes way beyond the frontend; I spend my time deep in Next.js, React, server infrastructures, APIs, and headless commerce engines like Medusa and Docker.
+I'm a 20-year-old full-stack web developer based in Israel, specializing in building modern applications and custom e-commerce architectures. My focus goes way beyond the frontend; I spend my time deep in Next.js, React, server infrastructures, APIs, and headless commerce engines like Medusa and Docker.
 
 This package was born directly from that full-stack perspective. While building real-world client projects and digital storefronts, I kept hitting the exact same bottleneck: transactional emails. The pain isn't just about wrestling with legacy inline CSS to make Outlook's dark mode behave. The real nightmare is the logic behind it—managing dozens of template variations, dynamically injecting translation files, and cleanly syncing backend data without turning your codebase into a mess. It’s a massive, error-prone time sink that slows down development.
 
@@ -212,6 +212,7 @@ Whether you have feedback, implementation questions, or just want to say hi—fe
 
 - **Email:** [guralnikelias390@gmail.com](mailto:guralnikelias390@gmail.com)
 - **NPM Profile:** [@guralnik-mailer](https://www.npmjs.com/package/guralnik-mailer)
+- **My Website:** [guralnik.dev](https://guralnik.dev)
 
 ### Support the Project
 
