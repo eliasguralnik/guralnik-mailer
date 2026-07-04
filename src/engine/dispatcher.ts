@@ -1,8 +1,10 @@
 // src/engine/dispatcher.ts
-import { SmartMailerConfig } from '../types';
+import { SmartMailerConfig, SendOptions } from '../types';
 import { SmtpProvider } from '../providers/SmtpProvider';
 import { SendgridProvider } from '../providers/SendgridProvider';
-import { ResendProvider } from '../providers/ResendProvider'; 
+import { ResendProvider } from '../providers/ResendProvider';
+import { SesProvider } from '../providers/SesProvider';
+import { MailgunProvider } from '../providers/MailgunProvider';
 import { logger as rootLogger } from "../logger";
 
 const logger = rootLogger.child({ module: 'Dispatcher' });
@@ -27,15 +29,21 @@ export class EmailDispatcher {
       case 'sendgrid':
         this.providerInstance = new SendgridProvider(this.config);
         break;
+      case 'ses':
+        this.providerInstance = new SesProvider(this.config);
+        break;
+      case 'mailgun':
+        this.providerInstance = new MailgunProvider(this.config);
+        break;
       default:
         logger.fatal({ provider: this.config.provider }, "Unknown provider in config!");
         throw new Error(`Unknown provider in config: ${this.config.provider}`);
     }
-    
+
     logger.debug({ provider: this.config.provider }, "Provider initialized.");
   }
 
-  async dispatch(to: string, subject: string, html: string): Promise<void> {
+  async dispatch(to: string, subject: string, html: string, options?: SendOptions): Promise<void> {
     logger.debug({ to, provider: this.config.provider }, "Attempting to dispatch email...");
 
     try {
@@ -44,19 +52,20 @@ export class EmailDispatcher {
         to: to,
         subject: subject,
         html: html,
+        ...(options?.attachments?.length ? { attachments: options.attachments } : {}),
       });
 
       logger.info(
-        { to, provider: this.config.provider }, 
+        { to, provider: this.config.provider },
         `🚀 Successfully dispatched via ${this.config.provider.toUpperCase()}`
       );
-      
+
     } catch (error) {
       logger.error(
-        { error, to, provider: this.config.provider }, 
+        { error, to, provider: this.config.provider },
         `❌ Failed to dispatch via ${this.config.provider}`
       );
-      
+
       throw error;
     }
   }

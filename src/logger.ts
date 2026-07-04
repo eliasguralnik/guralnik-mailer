@@ -4,7 +4,7 @@ import { sendPushAlert } from "./push"; // 🔥 NEU: Unser Telegram-Sender
 const isDev = process.env.NODE_ENV !== "production";
 
 export const logger = pino({
-  level: isDev ? "debug" : "silent",
+  level: process.env.LOG_LEVEL || (isDev ? "debug" : "silent"),
   name: "guralnik-mailer", 
   redact: ['apiKey', 'senderEmail', 'to'],
 
